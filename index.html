@@ -1,0 +1,321 @@
+<!--
+<?php
+include 'inc/database.php';
+
+$query =  "SELECT * FROM PRODUCTS "; 
+mysqli_set_charset($conn, 'utf8');
+$result = mysqli_query($conn, $query);
+$products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+?>
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="img/lucky30.png" type="image/png" sizes="16x16">
+  <!-- bootstrap css -->
+  
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+  <!-- main css -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  
+  
+  
+  <!-- font awesome -->
+  
+  <link rel="stylesheet" type="text/css" href="css/all.css">
+  <title>Lucky Nails Shop</title>
+  <style>
+  </style>
+</head>
+
+<body>
+
+  <!-- icons -->
+  <!-- 
+    https://www.iconfinder.com/icons/2427887/dessert_donut_doughnut_fat_sweets_icon
+    Creative Commons (Attribution 3.0 Unported);
+    https://www.iconfinder.com/korawan_m
+         -->
+  <!-- 
+    https://www.iconfinder.com/icons/2427860/baguette_bread_bread_loaf_food_toast_icon
+    Creative Commons (Attribution 3.0 Unported);
+    https://www.iconfinder.com/korawan_m
+         -->
+  <!-- 
+    https://www.iconfinder.com/icons/2427875/cup_cupcake_dessertice_cream_yogurt_icon
+    Creative Commons (Attribution 3.0 Unported);
+    https://www.iconfinder.com/korawan_m
+         -->
+  <!-- 
+    https://www.iconfinder.com/icons/2671457/candy_sweets_treat_trick_icon
+    Creative Commons (Attribution 3.0 Unported);
+    https://www.iconfinder.com/bluelabelicons
+         -->
+  <!--end of icons icons -->
+  <header id="header">
+   <nav class="navbar navbar-expand-lg px-4">
+     <a href="#" class="navbar-brand">
+       <img src="img/lucky30.svg" alt="main icon">
+       </a>
+       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
+         <span class="toggler-icon">
+           <i class="fas fa-bars"></i>
+          </span>
+        </button>
+       <div class="collapse navbar-collapse" id="myNavbar">
+       <ul class="navbar-nav text-capitalize mx-auto text-center">
+           <li class="nav-item active">
+            <a href="#header" class="nav-link">Домой</a>
+           </li>
+           <li class="nav-item active">
+            <a href="#about" class="nav-link">Инфо</a>
+          </li>
+           <li class="nav-item active">
+            <a href="#store" class="nav-link">Магазин</a>
+          </li>
+           <li class="nav-item active">
+            <a href="#services" class="nav-link">Услуги</a>
+          </li>
+           <li class="nav-item active">
+            <a href="#order" class="nav-link">Контакты</a>
+          </li>
+          <li class="nav-item active">
+            <a href="" class="nav-link" id="cartNav"><i class="fas fa-shopping-cart"></i></a>
+          </li>
+       </ul>
+       <div class="nav-info-items d-none d-lg-flex"><!--Корзинка и телефон исчезнут на маленьком экране-->
+        <!--single info-->
+        <div class="nav-info align-items-center d-flex justify-content-between mx-lg-5">
+        <span class="info-icon  mx-lg-3" >
+          <i class="fa fa-phone" aria-hidden="true"></i>
+        </span>
+        <p class="mb-0">+ 8(999) 260-78-73</p>
+         </div>
+         <!--single info-->
+         <div id="cart-info" class="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5">
+           <span class="cart-info__icon mr-lg-3"><i class="fas fa-shopping-cart"></i></span>
+             
+             <p class="mb-0 text-capitalize">
+               <span id="item-count">0</span>
+               Items-Р
+               <span class="item-total">0</span>
+             </p>
+           
+
+         </div>
+       </div> 
+      </div>
+   </nav>
+   <!--end of nav-->
+   <!--banner-->
+   <div class="container-fluid" id="boner">
+     <div class="row max-height justify-content-center align-items-center">
+       <div class="col-12 mx-auto banner text-center align-items-center"> <!--эта волшебная цифра 12-->
+      
+         <h1 class="text-capitalize">Добро пожаловать в <br><strong class="banner-title">LuckyNailsShop</strong></h1>
+         
+         <a href="#store" class="btn banner-link text-uppercase my-2">Заходи</a>
+       </div>
+       <!--cart-->
+       <div class="cart d-none" id="cart"><!--добавил контейнеру флекса - итог сменил ширину здесь - css 1х не работает-->
+       <div id="content" class="container-fluid"></div>
+           
+            <!--total-->
+            <div class="cart-total-container d-flex justify-content-center text-capitalize mt-1">
+            <h5>сумма</h5><span class="item-total"></span>
+            <h5>Р<strong id="cart-total" class="font-weight-bold"></strong></h5>
+            </div>  
+          
+            <!--end of total-->
+            <!--cart buttons-->
+            <div class="cart-buttons-container mt-3 d-flex justify-content-between">
+              <a href="" class="btn btn-black text-uppercase" id="clear-cart">Очистить корзину</a>
+             
+              <a href="cart.html" class="btn btn-green text-uppercase">Выписка</a>
+            </div>
+         </div>
+       </div>
+     </div>
+    
+  </header>
+   <!--end of header-->
+   <!--about-->
+   <section class="about py-5" id="about">
+     <div class="container">
+       <div class="row">
+          <div class="col-10 mx-auto col-md-6 my-5">
+            <h1 class="text-capitalize">Про <strong class="banner-title">нас</strong></h1>
+            <p class="my-4 text-muted w-75">Я ЗНАЮ ПОЧЕМУ ВЫ ВЫБИРАЕТЕ МЕНЯ ❤️<br>
+                Всем привет!<br>
+                На протяжении полгода я спрашивала у вас почему вы выбираете меня?<br>
+                И составила список ваших ответов<br>
+                1️.Я грамотный специалист.<br>
+                Разбираюсь в тонкостях обработки ногтей и кожи.<br>
+                Умело подбираю техники и средства под Ваш тип кожи и состояние ногтей.<br>⠀
+                </p>
+                <a href="#" class="btn btn-black text-uppercase">Вперёд</a>
+          </div>
+          <div class="col-10 mx-auto col-md-6 my-5 align-self-center">
+            <div class="about-img__container">
+              <img src="img/studio.jpg" class="img-fluid" alt=""> 
+            </div>
+          </div> 
+        
+       </div>
+     </div>
+   </section>
+   <!--end of about-->
+   <!--store section-->
+   <section id="store" class="store py-5">
+     <div class="container">
+       <!--section title-->
+       <div class="row">
+         <div class="col-10 mx-auto col-sm-6 text-center">
+           <h1 class="text-capitalize">Наш <strong class="banner-title">магазин</strong></h1>
+         </div>
+       </div>
+       <!--end section title-->
+       <!--filter buttons-->
+       <div class="row">
+ <div class="col-lg-8 mx-auto d-flex justify-content-around sortBtn flex-wrap">
+   <a href="" class="btn btn-black text-uppercase filter-btn m-2" data-filter="all">Всё</a>
+   <a href="" class="btn btn-black text-uppercase filter-btn m-2" data-filter="tops">Топы</a>
+   <a href="" class="btn btn-black text-uppercase filter-btn m-2" data-filter="straz">Стразы</a>
+   <a href="" class="btn btn-black text-uppercase filter-btn m-2" data-filter="gear">Инструмент</a>
+   <a href="" class="btn btn-black text-uppercase filter-btn m-2" data-filter="design">Дизайн</a>
+   <a href="" class="btn btn-black text-uppercase filter-btn m-2" data-filter="other">Разное</a>
+ </div>
+       </div>
+       <!--end of filter buttons-->
+       <!--search box-->
+       <div class="row">
+         <div class="col-10 mx-auto col-md-6">
+           <form>
+             <div class="input-group mb-3">
+               <div class="input-group-prepend">
+                 <span class="input-group-text search-box" id="search-icon">
+                   <i class="fas fa-search"></i>
+                 </span>
+               </div>
+               <input type="text" class="form-control" placeholder="Ищем..." id="search-item">
+             </div>
+           </form>
+         </div>
+       </div>
+       <!--end of search box-->
+     </div>
+   </section>
+   <!--end of store section-->
+   <!--store items-->
+   <div class="row store-items" id="store-items">
+     
+     
+    
+    
+    
+    
+        <!--single item-->
+    
+        </div>
+      </div>
+    </div> 
+    <!--end of single item -->
+
+   </div>
+   <!--end of store items-->
+   <!--services-->
+   <section id="services" class="services py-5">
+     <div class="container">
+       <div class="row">
+         <!--single service-->
+         <div class="col-md-4 text-center my-3">
+           <img src="img/manicure.jpg" alt="manicure">
+           <h6 class="text-uppercase my-3 service-title">manicure</h6>
+           <p class="w-75 mx-auto text-left service-text">При выравнивании создаётся правильная архитектура ногтевой пластины (укрепляем стрессовую зону)
+            Это позволяет избежать трещин и поломок,тем самым можно отрастить желаемую длину ногтей или просто укрепить тонкие ногти</p>
+         </div>
+         <!--end of single service-->
+         <!--single service-->
+         <div class="col-md-4 text-center my-3">
+          <img src="img/pedicure.jpg" alt="pedicure">
+          <h6 class="text-uppercase my-3 service-title">pedicure</h6>
+          <p class="w-75 mx-auto text-left service-text">А ты задумывалась над тем, сколько плюсов дает нам гель-лак.
+            Стойкость, блеск, можно не ходить по полчаса с растопыренными пальцами и сушить их феном - и это только часть "За" такое покрытие.</p>
+        </div>
+        <!--end of single service-->
+        <!--single service-->
+        <div class="col-md-4 text-center my-3">
+          <img src="img/design.jpg" alt="design">
+          <h6 class="text-uppercase my-3 service-title">design</h6>
+          <p class="w-75 mx-auto text-left service-text">Был розовый, а стал белый с непонятными пятнами - не приятная ситуация. Гель-лаки в отличие от обычных требуют особого ухода и условий хранения.</p>
+        </div>
+        <!--end of single service-->
+       </div>
+     </div>
+   </section>
+   <!--end of services-->
+   <footer>
+     <div class="container-fluid">
+       <div class="row">
+       <div class="col-md-6 footer-title py-5" id="order">
+         <h1 class="text-capitalize text-center">
+           <strong class="banner-title">LuckyNailsShop</strong>
+         </h1>
+         <div class="footer-icons mt-3 d-flex justify-content-around flex-wrap">
+           <a href="https://vk.com/nailstanyakey" target="_blank" class="footer-icon">
+             <i class="fab fa-vk"></i>
+           </a>
+           <a href="https://www.instagram.com/lucky_nailsshop/" target="_blank" class="footer-icon">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="footer-icon">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="footer-icon">
+            <i class="fab fa-google-plus"></i>
+          </a>
+         </div>
+       </div>
+       <div class="col-md-6 footer-contact text-center text-capitalize p-5">
+         <h3 class="mb-5">контакты</h3>
+         <p class="d-flex flex-wrap">
+           <span class="mr-4 footer-icon">
+             <i class="fas fa-map"></i>
+           </span>
+           <span>г.Вологда, ул.Ленинградская 71, офис 917</span>
+           
+         </p>
+         <p class="d-flex flex-wrap">
+          <span class="mr-4 footer-icon">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <span>kush@mail.ru</span>
+        </p>
+        <p class="d-flex flex-wrap">
+          <span class="mr-4 footer-icon">
+            <i class="fas fa-phone"></i>
+          </span>
+          <span>+ 8(999) 260-78-73</span>
+        </p>
+       </div>
+       </div>
+     </div>
+   </footer>
+  <!-- jquery -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <!-- script js -->
+  
+
+  <script src="js/main.js"></script>
+  
+  <script src="js/app.js"></script>
+  
+</body>
+
+</html>

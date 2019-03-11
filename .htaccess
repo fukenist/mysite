@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /mysite/ 
+#после загрузки на сервер сверху оставить просто RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /mysite/index.php?route=$1 [L]
+# RewriteRule ^(.*)$ /index.php?route=$1 [L]     для реального сервера www

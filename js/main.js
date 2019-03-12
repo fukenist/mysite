@@ -41,7 +41,7 @@ function onit() {
 //
  function goodsInBask(data) {
     var lucky = data;//все товары в массиве
-    console.log(0 == null);
+    
     checkCart();
     showCart();
     
@@ -288,7 +288,15 @@ function saveCart() {
     })
     
     })();
+    
+    //чтобы показалось анимация кнопки гамбургера
+    (function (){
+      const hamb = document.getElementById('hamburger-button');
 
+      hamb.addEventListener('click', function(){
+        $("#butt-hamb").toggleClass('is-active');
+      })
+    })(); 
 
 
 

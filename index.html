@@ -19,9 +19,10 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
   <!-- bootstrap css -->
   
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
+  <!--hamb bar menu-->
+  <link rel="stylesheet" href="css/hamburgers.css" >
   <!-- main css -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  
   
   
   <!-- font awesome -->
@@ -61,9 +62,9 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
      <a href="#" class="navbar-brand">
        <img src="img/lucky30.svg" alt="main icon">
        </a>
-       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
-         <span class="toggler-icon">
-           <i class="fas fa-bars"></i>
+       <button type="button" id="butt-hamb" class="navbar-toggler hamburger hamburger--spring " data-toggle="collapse" data-target="#myNavbar">
+         <span id="hamburger-button" class="toggler-icon hamburger-box">
+           <i class="hamburger-inner"></i>
           </span>
         </button>
        <div class="collapse navbar-collapse" id="myNavbar">

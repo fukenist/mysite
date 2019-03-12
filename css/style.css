@@ -58,7 +58,7 @@ body {
   cursor: pointer
 }
 .cart-info {
-  border: 0.1rem solid var(--mainBlack);
+  border: 0.1rem solid var(--mainYellow);
   color: var(--mainBlack);
   border-radius: 0.25rem;
   padding: 0.4rem 0.6rem;
@@ -89,7 +89,7 @@ body {
 }
 .banner-title {
   color: var(--mainGreener);
-  font-size: 4rem;
+  font-size: 3rem;
 }
 .banner-link {
   font-size: 1.5rem;
@@ -150,9 +150,8 @@ body {
    right: 0;
    padding: 0.75rem;
    background: var(--mainYellow);
-   border-top-left-radius: 1rem;
-   transition: all 0.4s ease-in-out;
-   transform: translate(100%,100%)
+   border-top-left-radius: 1rem
+   
  }
  .img-container:hover .store-item-icon {
    transform: translate(0,0)
@@ -224,8 +223,15 @@ body {
    font-size: 0.8rem
  }
 
- /*корзина в наве
- #cartNav{
-   color: var(--mainGreen)
+ /*добавить в корзину закреплено на телефонах*/
+ @media screen and (min-width: 600px) {
+  .store-item-icon {
+    transition: all 0.4s ease-in-out;
+   transform: translate(100%,100%)
+   
+  }
+  .banner-title {
+    font-size: 4rem
+  }
  }
- */
+

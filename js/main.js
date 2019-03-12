@@ -138,14 +138,15 @@ function onit() {
     function clearCart() {
       event.preventDefault();
       
-      //var out = 'Корзина пуста. Купи что-нить, а?';
-      //$('#content').html(out);
-      for (var variableKey in cart){
-        if (cart.hasOwnProperty(variableKey)){
-            delete cart[variableKey];
-        }
-    }
-      checkCart();
+      var out = 'Корзина пуста. Купи что-нить, а?';
+      $('#content').html(out);
+      
+      cart = {};   //так я очистил корзину
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+        
+      
       saveCartToLS();
       showCart();
     }
